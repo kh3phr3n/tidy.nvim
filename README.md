@@ -1,6 +1,6 @@
 # tidy.nvim 🧹
 
-**tidy.nvim** removes trailing white space and empty lines at EOF on save.
+**tidy.nvim** removes trailing white space and empty lines at EOF (optional) on save.
 
 ![tidy](https://github.com/mcauley-penney/tidy.nvim/assets/59481467/0c9c43c8-891a-40d4-9d54-b4bd5010be86)
 
@@ -17,7 +17,7 @@ Most basic configuration using lazy.nvim:
 
 ```lua
 {
-    "mcauley-penney/tidy.nvim",
+    "kh3phr3n/tidy.nvim",
     config = true,
 }
 ```
@@ -26,9 +26,10 @@ A more full example configuration for lazy.nvim would be:
 
 ```lua
 {
-    "mcauley-penney/tidy.nvim",
+    "kh3phr3n/tidy.nvim",
     opts = {
-        enabled_on_save = false
+        ignore_eof = true,
+        enabled_on_save = false,
         filetype_exclude = { "markdown", "diff" }
     },
     init = function()
@@ -44,8 +45,9 @@ tidy.nvim comes with the following options and their default settings:
 
 ```lua
 {
-  enabled_on_save = true
-  filetype_exclude = {}  -- Tidy will not be enabled for any filetype, e.g. "markdown", in this table
+    ignore_eof = false,
+    enabled_on_save = true,
+    filetype_exclude = {}  -- Tidy will not be enabled for any filetype, e.g. "markdown", in this table
 }
 ```
 

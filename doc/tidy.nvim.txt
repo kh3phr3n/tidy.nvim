@@ -13,7 +13,7 @@ Table of Contents                                *tidy.nvim-table-of-contents*
 ==============================================================================
 1. tidy.nvim                                            *tidy.nvim-tidy.nvim-*
 
-**tidy.nvim**removes trailing white space and empty lines at EOF on save.
+**tidy.nvim**removes trailing white space and empty lines at EOF (optional) on save.
 
 
 REQUIREMENTS                               *tidy.nvim-tidy.nvim--requirements*
@@ -29,7 +29,7 @@ Most basic configuration using lazy.nvim:
 
 >lua
     {
-        "mcauley-penney/tidy.nvim",
+        "kh3phr3n/tidy.nvim",
         config = true,
     }
 <
@@ -38,7 +38,7 @@ A more full example configuration for lazy.nvim would be:
 
 >lua
     {
-        "mcauley-penney/tidy.nvim",
+        "kh3phr3n/tidy.nvim",
         opts = {
             ignore_eof = true,
             enabled_on_save = false,
