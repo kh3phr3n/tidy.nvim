@@ -1,10 +1,10 @@
 local M = {}
 
 M.opts = {
+  ignore_eof = false,
   enabled_on_save = true,
   filetype_exclude = {},
 }
-
 
 function M.toggle()
   M.opts.enabled_on_save = not M.opts.enabled_on_save
@@ -54,7 +54,9 @@ function M.run()
   vim.cmd([[:keepjumps keeppatterns %s/\s\+$//e]])
 
   -- delete new lines @ eof
-  vim.cmd([[:keepjumps keeppatterns silent! 0;/^\%(\n*.\)\@!/,$d_]])
+  if not M.opts.ignore_eof then
+    vim.cmd([[:keepjumps keeppatterns silent! 0;/^\%(\n*.\)\@!/,$d_]])
+  end
 
   reset_cursor_pos(cursor_pos)
 end
